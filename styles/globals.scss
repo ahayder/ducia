@@ -1,0 +1,144 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  background-color: white;
+}
+
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+article > * + * {
+  margin-top: 1em;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item:hover::after,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu:hover::after,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-active::after,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-active::after,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-open::after,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-open::after,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-selected::after,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-selected::after {
+  border-bottom: 2px solid #21bf96 !important;
+}
+
+.ant-menu-horizontal > .ant-menu-item-selected a,
+.ant-menu-horizontal > .ant-menu-item a:hover {
+  color: #21bf96 !important;
+}
+
+.ant-modal-content {
+  overflow: auto;
+  border-radius: 1rem;
+}
+
+.wrap {
+  width: 150px;
+  height: 150px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  .uordList {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    perspective: 350px;
+    transform-style: preserve-3d;
+    animation: spin 10s linear infinite;
+    .list {
+      position: absolute;
+      opacity: 0;
+      transform-origin: 0% 50%;
+      @for $i from 1 through 300 {
+        &:nth-child(#{$i}) {
+          $tailLength: $i * 0.01 + s;
+          animation: o 5s $tailLength ease-in-out infinite;
+        }
+      }
+      .p {
+        left: 100%;
+        width: 2px;
+        height: 2px;
+        position: absolute;
+        background-color: #e74c3c;
+      }
+    }
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotateY(360deg) rotateX(360deg) rotateZ(360deg);
+  }
+}
+
+@keyframes o {
+  0% {
+    width: 50px;
+    transform: rotateY(random(360) + deg) rotateX(random(360) + deg)
+      rotateZ(random(360) + deg);
+    opacity: 0;
+  }
+  50% {
+    width: 150px;
+    transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg);
+    opacity: 1;
+  }
+  100% {
+    width: 50px;
+    transform: rotateY(random(360) + deg) rotateX(random(360) + deg)
+      rotateZ(random(360) + deg);
+    opacity: 0;
+  }
+}
+
+
