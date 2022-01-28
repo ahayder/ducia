@@ -6,17 +6,12 @@ import Reputation from "../Reputation"
 import {Avatar, Button }from "antd" 
 import glStyles from "../gstyles"
 import Blockie from "../Blockie"
-import AddPost from "./components/AddPost"
 
 const Feed = () => {
     const {selectedCategory} = useMoralisDapp();
     const [showAddPost, setShowAddPost] = useState(false)
 
     let result = null;
-    
-    function toogleShowAddPost(){
-        setShowAddPost(!showAddPost);
-    }
 
     if (selectedCategory["category"] === "default") {
         result = (
@@ -39,11 +34,10 @@ const Feed = () => {
             >
                 <Avatar src={<Blockie currentWallet />} />
                 <h4> Your Reputation in {selectedCategory["category"]} is <Reputation/> </h4>
-                <Button shape="round" onClick={toogleShowAddPost}>
+                <Button shape="round">
                     Post
                 </Button>
             </div>
-            {showAddPost ? <AddPost/>:""}
             <Posts/>
         </div>    
         )

@@ -9,14 +9,10 @@ import Address from "./Address/Address";
 import { SelectOutlined } from "@ant-design/icons";
 import { getExplorer } from "../helpers/networks";
 import { motion } from "framer-motion";
+import { Flex, Spacer, Text, Box } from "@chakra-ui/react";
+import { Avatar } from "antd";
 
 const MotionButton = motion(Button);
-
-const styles = {
-  text: {
-    color: "#21BF96",
-  },
-};
 
 function Account() {
   const { authenticate, isAuthenticated, logout } = useMoralis();
@@ -43,12 +39,12 @@ function Account() {
 
   return (
     <>
-      <div style={styles.account} onClick={() => setIsModalVisible(true)}>
-        <p style={{ marginRight: "5px", ...styles.text }}>
+      <Flex onClick={() => setIsModalVisible(true)} alignItems={"center"}>
+        <Text mr={"5px"} color={"purple.400"} fontSize={"lg"} fontWeight={"bold"}>
           {getEllipsisTxt(walletAddress, 6)}
-        </p>
-        <Blockie currentWallet scale={3} />
-      </div>
+        </Text>
+        <Avatar src={<Blockie currentWallet scale={5} />}></Avatar>
+      </Flex>
       <Modal
         visible={isModalVisible}
         footer={null}
