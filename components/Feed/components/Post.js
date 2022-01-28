@@ -86,7 +86,7 @@ const Post = ({post}) => {
         {createElement(voteStatus === "liked" ? LikeFilled : LikeOutlined)} Vote Up
         </span>
     </Tooltip>,
-    <span style={{ fontSize: "15px" }}><Votes postId={postId}/></span>,
+    <span key="comment-basic-votes" style={{ fontSize: "15px" }}><Votes postId={postId}/></span>,
     <Tooltip key="comment-basic-dislike" title="Dislike">
         <span
         style={{ fontSize: "15px", display: "flex", alignItems: "center", marginLeft: "8px" }}
