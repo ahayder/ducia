@@ -13,12 +13,6 @@ const isServerInfo = Boolean(APP_ID && SERVER_URL);
 
 const theme = extendTheme({
   colors: {
-    nasdaqPurple: {
-      900: "#782296",
-    },
-    nasdaqPest: {
-      900: "#00D3D3",
-    },
     purple: {
       50: "#EAEAFB",
       100: "#C4C5F3",

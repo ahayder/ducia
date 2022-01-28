@@ -2,23 +2,17 @@ import { useMoralisDapp } from "../providers/MoralisDappProvider/MoralisDappProv
 import { useMoralis } from "react-moralis";
 import { getEllipsisTxt } from "../helpers/formatters";
 import Blockie from "./Blockie";
-import { Button, Card, Modal } from "antd";
+import { Card, Modal } from "antd";
+import { Button } from "@chakra-ui/react";
 import { useState } from "react";
 import Address from "./Address/Address";
 import { SelectOutlined } from "@ant-design/icons";
 import { getExplorer } from "../helpers/networks";
+import { motion } from "framer-motion";
+
+const MotionButton = motion(Button);
+
 const styles = {
-  account: {
-    height: "42px",
-    padding: "0 15px",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    width: "fit-content",
-    borderRadius: "12px",
-    backgroundColor: "rgb(244, 244, 244)",
-    cursor: "pointer",
-  },
   text: {
     color: "#21BF96",
   },
@@ -31,12 +25,19 @@ function Account() {
 
   if (!isAuthenticated) {
     return (
-      <div
-        style={styles.account}
+      <MotionButton
         onClick={() => authenticate({ signingMessage: "Hello World!" })}
+        zIndex={1}
+        bg={"purple.800"}
+        color={"white"}
+        size={"lg"}
+        mt={"2.8rem"}
+        variant="solid"
+        whileHover={{ scale: 1.2, backgroundColor: "#111355" }}
+        boxShadow={"-15px 5px 20px #1A1D7F"}
       >
-        <p style={styles.text}>Authenticate</p>
-      </div>
+        Sign In Using MetaMask
+      </MotionButton>
     );
   }
 
