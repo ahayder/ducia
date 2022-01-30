@@ -42,7 +42,7 @@ function Account() {
       <Flex cursor={"pointer"} onClick={() => setIsModalVisible(true)} alignItems={"center"}>
         <Text
           mr={"5px"}
-          color={useColorModeValue("gray.300", "gray.300")}
+          color={"gray.300"}
           fontSize={"lg"}
           fontWeight={"bold"}
         >
