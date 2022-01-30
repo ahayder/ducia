@@ -1,5 +1,5 @@
 import Account from "../Account";
-import { Flex, Spacer, Text, Box } from "@chakra-ui/react";
+import { Flex, Spacer, Text, Box, Image } from "@chakra-ui/react";
 import ParticleBg from "./Particles";
 import "@fontsource/be-vietnam-pro"
 
@@ -15,16 +15,13 @@ const LandingPage = () => {
           alignItems={"center"}
           justifyContent={"center"}
         >
-          <Text
-            color={"white"}
-            fontSize={"2.5rem"}
-            fontWeight={"bold"}
+          <Image
+            width={"7rem"}
+            src={"logo/ducia.png"}
             position={"absolute"}
             left={"1rem"}
             top={"1rem"}
-          >
-            Ducia
-          </Text>
+          />
 
           <Box>
             <Text

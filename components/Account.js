@@ -9,7 +9,7 @@ import Address from "./Address/Address";
 import { SelectOutlined } from "@ant-design/icons";
 import { getExplorer } from "../helpers/networks";
 import { motion } from "framer-motion";
-import { Flex, Spacer, Text, Box } from "@chakra-ui/react";
+import { Flex, Spacer, Text, Box, useColorModeValue } from "@chakra-ui/react";
 import { Avatar } from "antd";
 
 const MotionButton = motion(Button);
@@ -39,11 +39,16 @@ function Account() {
 
   return (
     <>
-      <Flex onClick={() => setIsModalVisible(true)} alignItems={"center"}>
-        <Text mr={"5px"} color={"purple.400"} fontSize={"lg"} fontWeight={"bold"}>
+      <Flex cursor={"pointer"} onClick={() => setIsModalVisible(true)} alignItems={"center"}>
+        <Text
+          mr={"5px"}
+          color={useColorModeValue("gray.300", "gray.300")}
+          fontSize={"lg"}
+          fontWeight={"bold"}
+        >
           {getEllipsisTxt(walletAddress, 6)}
         </Text>
-        <Avatar src={<Blockie currentWallet scale={5} />}></Avatar>
+        {/* <Avatar src={<Blockie currentWallet scale={5} />}></Avatar> */}
       </Flex>
       <Modal
         visible={isModalVisible}

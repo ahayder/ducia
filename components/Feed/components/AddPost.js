@@ -77,30 +77,33 @@ const AddPost = () => {
   }
 
   return (
-    <FormControl onSubmit={onSubmit}>
-      <Flex direction={"column"}>
-        <FormLabel onChange={(e) => setTitle(e.target.value)} htmlFor="title">
-          {title}
-        </FormLabel>
-        <Textarea
-          isDisabled
-          placeholder="Post away"
-          rows="5"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          mb={"1rem"}
-        />
-        <Button
-          color={"gray.300"}
-          alignSelf={"flex-end"}
-          type="submit"
-          variant={"solid"}
-          bg={"purple.700"}
-        >
-          Publish
-        </Button>
-      </Flex>
-    </FormControl>
+    <form onSubmit={onSubmit}>
+      <FormControl>
+        <Flex direction={"column"}>
+          <FormLabel onChange={(e) => setTitle(e.target.value)} htmlFor="title">
+            {title}
+          </FormLabel>
+          <Textarea
+            placeholder="Post away"
+            fontSize={"2xl"}
+            rows="3"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            mb={"1rem"}
+          />
+          <Button
+            color={"blackAlpha.900"}
+            alignSelf={"flex-end"}
+            type="submit"
+            variant={"solid"}
+            bgGradient={"linear(to-r, purple.500, pink.500)"}
+            borderBottom={"5px solid #ebebeb50"}
+          >
+            Publish
+          </Button>
+        </Flex>
+      </FormControl>
+    </form>
   );
 };
 

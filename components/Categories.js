@@ -16,21 +16,19 @@ const Categories = ({ categories }) => {
   return (
     <Flex direction={"column"} alignItems={"flex-end"}>
       <Text
-        color={"gray.300"}
+        color={"gray.400"}
         fontSize={"4xl"}
-        fontWeight={"bold"}
         width={"11rem"}
       >
         Topics
       </Text>
-      <Box width={"11rem"}>
+      <Box>
         <Flex direction={"column"} key="categories" alignItems={"flex-start"}>
           {categories.map((category) => (
             <Button
-              my={".5rem"}
+              my={".4rem"}
               variant={"link"}
-              color={"gray.300"}
-              fontWeight={"bold"}
+              color={"gray.400"}
               fontSize={"xl"}
               key={category["categoryId"]}
               leftIcon={<StarIcon />}
