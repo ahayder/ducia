@@ -15,11 +15,7 @@ const Categories = ({ categories }) => {
 
   return (
     <Flex direction={"column"} alignItems={"flex-end"}>
-      <Text
-        color={"gray.400"}
-        fontSize={"4xl"}
-        width={"11rem"}
-      >
+      <Text color={"gray.400"} fontSize={"4xl"} width={"11rem"}>
         Topics
       </Text>
       <Box>
@@ -33,7 +29,9 @@ const Categories = ({ categories }) => {
               key={category["categoryId"]}
               leftIcon={<StarIcon />}
               letterSpacing={"0.1rem"}
-              onClick={() => selectCategory(category["categoryId"])}
+              onClick={() => {
+                selectCategory(category["categoryId"]);
+              }}
             >
               {category["category"]}
             </Button>

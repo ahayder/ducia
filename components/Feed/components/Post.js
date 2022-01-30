@@ -1,7 +1,7 @@
 import { useMoralisDapp } from "../../../providers/MoralisDappProvider/MoralisDappProvider";
 import { useMoralisQuery, useWeb3ExecuteFunction } from "react-moralis";
 import { useEffect, useState, createElement } from "react";
-import { Comment, Tooltip, Avatar, message, Divider } from "antd";
+import { Tooltip, Avatar, message } from "antd";
 import {
   DislikeOutlined,
   LikeOutlined,
@@ -11,7 +11,6 @@ import {
 import Blockie from "../../Blockie";
 import Votes from "./Votes";
 import {
-  Spinner,
   Box,
   Center,
   Heading,
@@ -19,6 +18,7 @@ import {
   Stack,
   Flex,
   useColorModeValue,
+  Skeleton,
 } from "@chakra-ui/react";
 
 const Post = ({ post }) => {
@@ -102,13 +102,15 @@ const Post = ({ post }) => {
   }
 
   const loading = (
-    <Spinner
-      thickness="4px"
-      speed="0.65s"
-      emptyColor="gray.200"
-      color="blue.500"
-      size="xl"
-    />
+    <Stack>
+      <Skeleton
+        colorScheme={"gray"}
+        speed="5"
+        my={6}
+        borderRadius={"xl"}
+        height="10rem"
+      />
+    </Stack>
   );
 
   const result = (
@@ -183,7 +185,7 @@ const Post = ({ post }) => {
             </span>
             ,
             <Tooltip key="comment-basic-dislike" title="Dislike">
-            <Flex
+              <Flex
                 fontSize="15px"
                 alignItems="center"
                 justifyContent="center"

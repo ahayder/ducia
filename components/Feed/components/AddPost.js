@@ -16,6 +16,7 @@ import {
   FormErrorMessage,
   FormHelperText,
   Button,
+  Input,
 } from "@chakra-ui/react";
 
 const AddPost = () => {
@@ -79,17 +80,26 @@ const AddPost = () => {
   return (
     <form onSubmit={onSubmit}>
       <FormControl>
-        <Flex direction={"column"}>
-          <FormLabel onChange={(e) => setTitle(e.target.value)} htmlFor="title">
-            {title}
-          </FormLabel>
+        <Flex mt={6} direction={"column"} bg={"gray.900"} padding={6} borderRadius={"xl"}>
           <Textarea
-            placeholder="Post away"
-            fontSize={"2xl"}
-            rows="3"
+            placeholder="Title"
+            value={title}
+            fontSize={"xl"}
+            onChange={(e) => setTitle(e.target.value)}
+            mb={6}
+            borderColor={"gray.500"}
+            color={"gray.300"}
+            rows={3}
+          />
+          <Textarea
+            placeholder="Context goes here..."
+            fontSize={"xl"}
+            rows="10"
             value={content}
             onChange={(e) => setContent(e.target.value)}
-            mb={"1rem"}
+            mb={6}
+            borderColor={"gray.500"}
+            color={"gray.300"}
           />
           <Button
             color={"blackAlpha.900"}
@@ -99,7 +109,7 @@ const AddPost = () => {
             bgGradient={"linear(to-r, purple.500, pink.500)"}
             borderBottom={"5px solid #ebebeb50"}
           >
-            Publish
+            Post away
           </Button>
         </Flex>
       </FormControl>

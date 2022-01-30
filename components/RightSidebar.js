@@ -37,7 +37,7 @@ const RightSidebar = () => {
         >
           Your Earned Badges
         </Text>
-        <Flex p={6} justifyContent={"space-around"}>
+        <Flex mt={"1rem"} border={"1px solid purple"} borderRadius={"xl"} p={5} justifyContent={"space-around"}>
             <MotionImage whileHover={{ scale: 1.2 }} px={"3"} width={"5rem"} src="/graphic-assets/silver.png" />
             <MotionImage whileHover={{ scale: 1.2 }} px={"3"} width={"5rem"} src="/graphic-assets/ingots.png" />
             <MotionImage whileHover={{ scale: 1.2 }} px={"3"} width={"5rem"} src="/graphic-assets/gem.png" />
@@ -55,12 +55,13 @@ const RightSidebar = () => {
         my={6}
       >
         <MotionFlex
-          bgGradient={"linear(to-r, purple.500, orange.500)"}
+          bgGradient={"linear(to-r, purple.500, red.500)"}
           mb={6}
           borderRadius={"xl"}
           borderBottom={"5px solid #ebebeb50"}
           width={"95%"}
           whileHover={{ scale: 1.2 }}
+          cursor={"pointer"}
         >
           <Flex
             justifyContent="center"
@@ -87,11 +88,10 @@ const RightSidebar = () => {
         </MotionFlex>
 
         <MotionFlex
-          bgGradient={"linear(to-r, cyan.500, purple.500)"}
+          bgGradient={"linear(to-r, purple.500, red.500)"}
           borderRadius={"xl"}
           borderBottom={"5px solid #ebebeb50"}
           width={"95%"}
-          whileHover={{ scale: 1.2 }}
         >
           <Flex
             justifyContent="center"

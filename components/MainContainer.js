@@ -14,13 +14,17 @@ import {
   Box,
   useColorModeValue,
   Image,
+  Button,
 } from "@chakra-ui/react";
 import Reputation from "./Reputation";
 import { GrConnect } from "react-icons/gr";
 import RightSidebar from "./RightSidebar";
+import { AddIcon } from "@chakra-ui/icons";
+import { useState } from "react";
 
 const MainContainer = () => {
   const { selectedCategory } = useMoralisDapp();
+  const [showAddPost, setShowAddPost] = useState(false);
   const queryCategories = useMoralisQuery("Categories");
   const fetchedCategories = JSON.parse(
     JSON.stringify(queryCategories.data, ["categoryId", "category"])
@@ -60,16 +64,32 @@ const MainContainer = () => {
             },
           }}
         >
-          <Text
-            borderBottom={"1px solid #ebebeb20"}
+          <Flex
             paddingBottom={"0.5rem"}
-            paddingLeft={"0.5rem"}
-            color={"gray.300"}
-            fontSize={"4xl"}
-            fontWeight={"bold"}
+            borderBottom={"1px solid #ebebeb20"}
+            alignItems={"center"}
+            justifyContent={"space-between"}
           >
-            Home
-          </Text>
+            <Text
+              paddingLeft={"0.5rem"}
+              color={"gray.300"}
+              fontSize={"4xl"}
+              fontWeight={"bold"}
+            >
+              Home
+            </Text>
+            <Button
+              bgGradient={"linear(to-r, purple.500, pink.500)"}
+              color={"white"}
+              fontSize={"xl"}
+              onClick={() => {
+                setShowAddPost(true);
+              }}
+              _hover={{ bg: "pink.500" }}
+            >
+              <AddIcon />
+            </Button>
+          </Flex>
           <AddPost />
           <Feed />
         </Flex>
