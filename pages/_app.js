@@ -44,7 +44,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>DecentraSocial</title>
+        <title>Ducia</title>
       </Head>
       <MoralisProvider appId={APP_ID} serverUrl={SERVER_URL}>
         <MoralisDappProvider>

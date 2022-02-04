@@ -117,22 +117,13 @@ const Post = ({ post }) => {
     <>
       <Center my={5} p={6} bg={"gray.900"} borderRadius={"xl"}>
         <Box
-          // maxW={"445px"}
           w={"full"}
-          bg={useColorModeValue("gray.900", "gray.100")}
+          bg="gray.900"
           boxShadow={"2xl"}
           rounded={"md"}
           p={6}
           overflow={"hidden"}
         >
-          {/* <Box
-            h={"210px"}
-            bg={"gray.100"}
-            mt={-6}
-            mx={-6}
-            mb={6}
-            pos={"relative"}
-          ></Box> */}
           <Stack>
             <Text
               color={"cyan.500"}
@@ -144,20 +135,20 @@ const Post = ({ post }) => {
               {selectedCategory.category}
             </Text>
             <Heading
-              color={useColorModeValue("gray.300", "white")}
+              color="gray.100"
               fontSize={"2xl"}
               fontFamily={"body"}
             >
               {postContent["title"]}
             </Heading>
-            <Text color={"gray.500"}>{postContent["content"]}</Text>
+            <Text color={"gray.200"}>{postContent["content"]}</Text>
           </Stack>
           <Stack mt={6} direction={"row"} spacing={4} align={"center"}>
             <Avatar
               src={<Blockie address={post["postOwner"]} scale="4" />}
             ></Avatar>
             <Stack direction={"column"} spacing={0} fontSize={"sm"}>
-              <Text fontWeight={600} color={"gray.300"}>
+              <Text fontWeight={600} color={"gray400"}>
                 Author: Anonymous
               </Text>
               <Text color={"gray.500"}>{post["postOwner"]}</Text>
@@ -195,7 +186,7 @@ const Post = ({ post }) => {
               >
                 {createElement(
                   voteStatus === "disliked" ? DislikeFilled : DislikeOutlined
-                )}{" "}
+                )}
                 Vote Down
               </Flex>
             </Tooltip>

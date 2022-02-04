@@ -10,7 +10,6 @@ import { SelectOutlined } from "@ant-design/icons";
 import { getExplorer } from "../helpers/networks";
 import { motion } from "framer-motion";
 import { Flex, Spacer, Text, Box, useColorModeValue } from "@chakra-ui/react";
-import { Avatar } from "antd";
 
 const MotionButton = motion(Button);
 
@@ -22,7 +21,7 @@ function Account() {
   if (!isAuthenticated) {
     return (
       <MotionButton
-        onClick={() => authenticate({ signingMessage: "Hello World!" })}
+        onClick={() => authenticate({ signingMessage: "Ducia Sign In" })}
         zIndex={1}
         bg={"purple.800"}
         color={"white"}

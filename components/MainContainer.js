@@ -2,23 +2,14 @@ import { useMoralisQuery } from "react-moralis";
 import { useMoralisDapp } from "../providers/MoralisDappProvider/MoralisDappProvider";
 import Categories from "./Categories";
 import Feed from "./Feed";
-import Account from "./Account";
 import AddPost from "./Feed/components/AddPost";
 import {
-  SimpleGrid,
   Flex,
   Text,
-  Heading,
-  Icon,
-  chakra,
-  Box,
-  useColorModeValue,
   Image,
   Button,
 } from "@chakra-ui/react";
-import Reputation from "./Reputation";
-import { GrConnect } from "react-icons/gr";
-import RightSidebar from "./RightSidebar";
+import RightSidebar from "./RightSidebar/RightSidebar";
 import { AddIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 
