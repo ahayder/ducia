@@ -39,7 +39,6 @@ const BadgeHolder = () => {
         >
           Your Earned Badges
         </Text>
-        <Text color={"white"}>{badge && `${badge} Badge`}</Text>
         <Flex
           mt={"1rem"}
           border={"1px solid purple"}
