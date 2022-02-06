@@ -17,14 +17,36 @@ import {
   Text,
   Stack,
   Flex,
-  useColorModeValue,
   Skeleton,
+  Progress,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
+  Button,
+  Slider,
+  SliderMark,
+  SliderTrack,
+  SliderFilledTrack,
+  SliderThumb,
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td,
 } from "@chakra-ui/react";
 
-const Post = ({ post }) => {
-  const { contentId, postId, postOwner } = post;
+const Post = ({ post, ranValidationScore }) => {
+  const { contentId, postId, postOwner, validationScore } = post;
   const { selectedCategory } = useMoralisDapp();
-  console.log(selectedCategory);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [sliderValue, setSliderValue] = useState(50);
+
   const [postContent, setPosContent] = useState({
     title: "default",
     content: "default",
@@ -125,6 +147,93 @@ const Post = ({ post }) => {
           overflow={"hidden"}
         >
           <Stack>
+            <Text fontWeight={"bold"} color={"gray.300"}>
+              Validation Score
+            </Text>
+          </Stack>
+          <Stack mb={3}>
+            <Modal size={"xl"} blockScrollOnMount={false} isOpen={isOpen} onClose={onClose}>
+              <ModalOverlay />
+              <ModalContent>
+                <ModalHeader>Validate this Article</ModalHeader>
+                <ModalCloseButton />
+
+                <ModalBody>
+                  <Flex direction={"column"}>
+                    <Slider
+                      aria-label="slider-ex-6"
+                      onChange={(val) => setSliderValue(val)}
+                      colorScheme={"purple"}
+                    >
+                      <SliderMark value={25} mt="1" ml="-2.5" fontSize="sm">
+                        25%
+                      </SliderMark>
+                      <SliderMark value={50} mt="1" ml="-2.5" fontSize="sm">
+                        50%
+                      </SliderMark>
+                      <SliderMark value={75} mt="1" ml="-2.5" fontSize="sm">
+                        75%
+                      </SliderMark>
+                      <SliderMark
+                        value={sliderValue}
+                        textAlign="center"
+                        bg="blue.500"
+                        color="white"
+                        mt="-10"
+                        ml="-5"
+                        w="12"
+                      >
+                        {sliderValue}%
+                      </SliderMark>
+                      <SliderTrack>
+                        <SliderFilledTrack />
+                      </SliderTrack>
+                      <SliderThumb />
+                    </Slider>
+
+                    <Flex mt={10} direction={"column"}>
+                      <Text
+                        fontWeight={"bold"}
+                        fontSize={"xl"}
+                        color={"gray.300"}
+                      >
+                        Users who already validated
+                      </Text>
+                      <Table variant="striped" colorScheme="purple">
+                        <Thead>
+                          <Tr>
+                            <Th>Address</Th>
+                            <Th>Score</Th>
+                          </Tr>
+                        </Thead>
+                        <Tbody>
+                          {ranValidationScore.map((item, index) => (
+                            <Tr>
+                              <Td>{item.account}</Td>
+                              <Td>{`${item.validationScore} %`}</Td>
+                            </Tr>
+                          ))}
+                        </Tbody>
+                      </Table>
+                    </Flex>
+                  </Flex>
+                </ModalBody>
+
+                <ModalFooter>
+                  {/* <Button colorScheme="blue" mr={3} onClick={onClose}>
+                    Close
+                  </Button> */}
+                </ModalFooter>
+              </ModalContent>
+            </Modal>
+            <Progress
+              onClick={onOpen}
+              colorScheme="red"
+              size="lg"
+              value={validationScore}
+            />
+          </Stack>
+          <Stack>
             <Text
               color={"cyan.500"}
               textTransform={"uppercase"}
@@ -134,11 +243,7 @@ const Post = ({ post }) => {
             >
               {selectedCategory.category}
             </Text>
-            <Heading
-              color="gray.100"
-              fontSize={"2xl"}
-              fontFamily={"body"}
-            >
+            <Heading color="gray.100" fontSize={"2xl"} fontFamily={"body"}>
               {postContent["title"]}
             </Heading>
             <Text color={"gray.200"}>{postContent["content"]}</Text>

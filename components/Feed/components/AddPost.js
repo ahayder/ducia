@@ -102,7 +102,7 @@ const AddPost = () => {
             color={"gray.300"}
           />
           <Button
-            color={"blackAlpha.900"}
+            color={"gray.300"}
             alignSelf={"flex-end"}
             type="submit"
             variant={"solid"}
