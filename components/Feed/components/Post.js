@@ -208,7 +208,7 @@ const Post = ({ post, ranValidationScore }) => {
                         </Thead>
                         <Tbody>
                           {ranValidationScore.map((item, index) => (
-                            <Tr>
+                            <Tr key={index}>
                               <Td>{item.account}</Td>
                               <Td>{`${item.validationScore} %`}</Td>
                             </Tr>
